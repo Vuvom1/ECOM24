@@ -21,7 +21,7 @@ function Footer() {
           </div>
           <div className='footer-content-title'>
             <p className='footer-subscription-heading'>
-              Join the Adventure newsletter to receive our best vacation deals
+              Join the ECOM24 community to receive hot news from UEFA EURO 2024
             </p>
           </div>
         </div>
