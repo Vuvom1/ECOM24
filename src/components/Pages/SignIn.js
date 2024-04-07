@@ -6,7 +6,7 @@ export default function SignIn() {
         <div className="sign-in">
             {/* <video src="/videos/video-3.mp4" autoPlay loop muted /> */}
             <div className="sign-in_container col-4">
-                <div className="title">Sign in to TRVL</div>
+                <div className="title">Sign in to ECOM24</div>
                 <div className="text">Username or Email</div>
                 <input type="text"></input>
                 <div className="text">Password</div>
