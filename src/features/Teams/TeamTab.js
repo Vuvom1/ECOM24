@@ -5,7 +5,8 @@ import PropTypes from 'prop-types';
 import { Tabs, Tab, Box, Typography, colors } from '@mui/material';
 import TeamOverview from './TeamOverview';
 import TeamMatches from './TeamMatches';
-
+import TeamSquad from './TeamSquad';
+import theme from '../../theme/CustomTheme'
 
 
 function TeamTab() {
@@ -18,11 +19,13 @@ function TeamTab() {
     return (
         <>
             <Box sx={{borderBottom: 1, background: '#143cdb', borderColor: 'divider' }}>
-                <Tabs value={value}  textColor="#fff" onChange={handleChange} aria-label="basic tabs example">
-                    <Tab label="Overview"/>
-                    <Tab label="Matches"{...a11yProps(1)} />
-                    <Tab label="Stats" {...a11yProps(2)} />
-                    <Tab label="Squad" {...a11yProps(3)} />
+                <Tabs  value={value}
+          onChange={handleChange}
+          aria-label="team information tabs">
+                    <Tab label="Overview" style={{ color: value === 0 ? theme.palette.tabColor.active : theme.palette.tabColor.default }}/>
+                    <Tab label="Matches"{...a11yProps(1)} style={{ color: value === 1 ? theme.palette.tabColor.active : theme.palette.tabColor.default }}/>
+                    <Tab label="Stats" {...a11yProps(2)} style={{ color: value === 2 ? theme.palette.tabColor.active : theme.palette.tabColor.default }}/>
+                    <Tab label="Squad" {...a11yProps(3)} style={{ color: value === 3 ? theme.palette.tabColor.active : theme.palette.tabColor.default }}/>
                 </Tabs>
             </Box>
             <CustomTabPanel value={value} index={0}>
@@ -35,7 +38,7 @@ function TeamTab() {
                 Item Three
             </CustomTabPanel>
             <CustomTabPanel value={value} index={3}>
-                Item Four
+                <TeamSquad></TeamSquad>
             </CustomTabPanel>
         </>
     )
