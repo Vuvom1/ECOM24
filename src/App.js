@@ -7,8 +7,8 @@ import Home from './components/Pages/Home.js';
 import Services from './components/Pages/Services.js';
 import Products from './components/Pages/Products.js';
 import SignIn from './components/Pages/SignIn.js';
-import TeamsPage from './features/Teams/TeamPage.js';
-import TeamDetailPage from './features/Teams/TeamDetailPage.js';
+import TeamsPage from './features/Team/TeamPage.js';
+import TeamDetailPage from './features/TeamDetail/TeamDetailPage.js'
 
 import Navbar from './components/Navbar';
 import Footer from './components/Footer.js';

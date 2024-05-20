@@ -1,7 +1,7 @@
 import React from 'react';
+import '../../../App.css';
+import '../../../styles/Team.css';
 import { Typography, Stack, Divide, Card, CardContent, Grid } from '@mui/material';
-import './Team.css'
-import TeamItem from './TeamItem.js'
 
 
 function TeamMatchITem() {

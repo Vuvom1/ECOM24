@@ -1,10 +1,9 @@
 import React from 'react';
 import '../../App.css';
-import './Team.css';
-import Footer from '../../components/Footer';
-import TeamHeader from './TeamHeader.js';
-import TeamItem from './TeamItem.js';
-import TeamTab from './TeamTab.js';
+import '../../styles/Team.css';
+import Footer from '../../components/Footer.js';
+import TeamHeader from './widgets/TeamHeader.js';
+import TeamTab from './widgets/TeamTab.js';
 
 
 

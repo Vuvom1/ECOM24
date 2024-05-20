@@ -1,6 +1,6 @@
 import React from 'react';
-import '../../App.css';
-import './Team.css';
+import '../../../App.css';
+import '../../../styles/Team.css';
 import { Avatar, Grid, Typography, Link, Divider } from '@mui/material';
 import Stack from '@mui/material/Stack';
 import { ArrowBackIos } from '@mui/icons-material';

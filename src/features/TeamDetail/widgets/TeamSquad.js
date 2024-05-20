@@ -1,7 +1,6 @@
 import React from 'react';
-import Card from '../../components/Card';
-import '../../App.css';
-import './Team.css';
+import '../../../App.css';
+import '../../../styles/Team.css';
 import { Tabs, Tab, Box, Typography, colors } from '@mui/material';
 import PlayerBadge from './PlayerBadge';
 

@@ -1,6 +1,6 @@
 import React from 'react';
-import '../../App.css';
-import './Team.css';
+import '../../../App.css';
+import '../../../styles/Team.css';
 import {Card, CardActionArea, CardContent, CardMedia, Divider, Typography } from '@mui/material';
 
 
@@ -21,8 +21,14 @@ function PlayerBadge({flagUrl, playerImageUrl, firstName, surName, position}) {
                 <CardContent className='player-badge_content'>
                     <Typography variant='subtitle1' >{surName}</Typography>
                     <Typography variant='h6' fontWeight='bold'  >{firstName.toUpperCase()} </Typography>
-                    <Divider variant='center' />
-                    <Typography variant='subtitle2'>{position}</Typography>
+                   
+                   
+                </CardContent>
+
+                <Divider variant='middle' />
+
+                <CardContent className='player-badge_content'>
+                    <Typography variant='subtitle2'>{position.toUpperCase()}</Typography>
                 </CardContent>
 
                

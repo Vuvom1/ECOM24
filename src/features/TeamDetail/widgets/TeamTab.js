@@ -1,12 +1,13 @@
 import React from 'react';
-import '../../App.css';
-import './Team.css';
+import '../../../App.css';
+import '../../../styles/Team.css';
 import PropTypes from 'prop-types';
 import { Tabs, Tab, Box, Typography, colors } from '@mui/material';
 import TeamOverview from './TeamOverview';
 import TeamMatches from './TeamMatches';
 import TeamSquad from './TeamSquad';
-import theme from '../../theme/CustomTheme'
+import theme from '../../../theme/CustomTheme'
+import TeamStats from './TeamStats';
 
 
 function TeamTab() {
@@ -35,7 +36,7 @@ function TeamTab() {
                 <TeamMatches/>
             </CustomTabPanel>
             <CustomTabPanel value={value} index={2}>
-                Item Three
+                <TeamStats></TeamStats>
             </CustomTabPanel>
             <CustomTabPanel value={value} index={3}>
                 <TeamSquad></TeamSquad>

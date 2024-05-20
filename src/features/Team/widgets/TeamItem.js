@@ -1,5 +1,6 @@
 import React from 'react'
-import './Team.css'
+import '../../../App.css';
+import '../../../styles/Team.css';
 import { Tabs, Tab, Box, Typography, colors } from '@mui/material';
 
 function TeamItem ({ name, logoUrl }) {
