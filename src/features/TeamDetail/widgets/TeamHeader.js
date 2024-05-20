@@ -7,7 +7,7 @@ import { ArrowBackIos } from '@mui/icons-material';
 import { green, orange } from '@mui/material/colors';
 
 
-function TeamsPage() {
+function TeamsPage({team_name ,team_badge}) {
     return (
         <>
             <Stack className='team-header'>
@@ -21,11 +21,11 @@ function TeamsPage() {
 
                     </Grid>
                     <Grid item xs={4}>
-                        <Avatar src='https://img.uefa.com/imgml/flags/70x70/AUT.png' sx={{ width: 196, height: 196 }}></Avatar>
+                        <Avatar src={team_badge} sx={{ width: 196, height: 196 }}></Avatar>
                     </Grid>
                     <Grid item xs={8}>
 
-                        <Typography variant="h2" className='team-name' align="left" mt={8} color={'white'}>Austria</Typography>
+                        <Typography variant="h2" className='team-name' align="left" mt={8} color={'white'}>{team_name}</Typography>
 
 
                     </Grid>

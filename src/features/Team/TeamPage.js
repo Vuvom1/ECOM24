@@ -9,7 +9,7 @@ import TeamsApi from '../../api/teamsApi.js';
 
 function TeamsPage() {
     const [teamList, setTeamList] = useState([]);
-    const [isLoading, setIsLoading] = useState(true); 
+    const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
         const fetchTeamList = async () => {
@@ -43,18 +43,17 @@ function TeamsPage() {
 
                                 <div className="teams-overview-team-wrapper">
 
-                                    {/* Conditionally render loading indicator or team items */}
-                  {isLoading ? (
-                    <h4>Loading Teams...</h4>
-                  ) : (
-                    teamList.length > 0 && (
-                      <>
-                        {teamList.map((team) => (
-                          <TeamItem name={team.team_name} logoUrl={team.team_badge} />
-                        ))}
-                      </>
-                    )
-                  )}
+                                    {isLoading ? (
+                                        <h4>Loading Teams...</h4>
+                                    ) : (
+                                        teamList.length > 0 && (
+                                            <>
+                                                {teamList.map((team) => (
+                                                    <TeamItem key={team.team_key} name={team.team_name} logoUrl={team.team_badge} team_key={team.team_key} />
+                                                ))}
+                                            </>
+                                        )
+                                    )}
                                 </div>
 
 
@@ -64,13 +63,7 @@ function TeamsPage() {
                                 <h2 className="team-overview-label">Play-off</h2>
 
                                 <div className="teams-overview-team-wrapper">
-                                    <TeamItem logoUrl='https://img.uefa.com/imgml/flags/70x70/ALB.png' name='Albania'  ></TeamItem>
-                                    <TeamItem logoUrl='https://img.uefa.com/imgml/flags/70x70/AUT.png' name='Austria'  ></TeamItem>
-                                    <TeamItem logoUrl='https://img.uefa.com/imgml/flags/70x70/AUT.png' name='Austria'  ></TeamItem>
-                                    <TeamItem logoUrl='https://img.uefa.com/imgml/flags/70x70/AUT.png' name='Austria'  ></TeamItem>
-                                    <TeamItem logoUrl='https://img.uefa.com/imgml/flags/70x70/AUT.png' name='Austria'  ></TeamItem>
-                                    <TeamItem logoUrl='https://img.uefa.com/imgml/flags/70x70/AUT.png' name='Austria'  ></TeamItem>
-                                    <TeamItem logoUrl='https://img.uefa.com/imgml/flags/70x70/AUT.png' name='Austria'  ></TeamItem>
+                                    
                                 </div>
 
 
