@@ -27,7 +27,6 @@ function TeamDetailPage() {
                 const filteredTeamData = response.find(team => team.team_key === team_key);
                 if (filteredTeamData) {
                   setTeamData(filteredTeamData);
-                  console.log(filteredTeamData);
                 } else {
                   console.warn('Team not found with key:', team_key);
                 }
@@ -47,7 +46,7 @@ function TeamDetailPage() {
     return (
         <>
             <TeamHeader team_name={teamData["team_name"]} team_badge={teamData["team_badge"]}></TeamHeader>
-            <TeamTab players={teamData["players"]} team_badge={teamData["team_badge"]}></TeamTab>
+            <TeamTab team_key={team_key} players={teamData["players"]} team_badge={teamData["team_badge"]}></TeamTab>
             <Footer />
         </>
     )

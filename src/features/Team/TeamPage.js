@@ -6,6 +6,8 @@ import Teams from '../../services/footballApi.js'
 import { Tabs, Tab, Box, Typography, colors } from '@mui/material';
 import { useEffect, useState } from 'react';
 import TeamsApi from '../../api/teamsApi.js';
+import ReactLoading from 'react-loading';
+import ClipLoader from "react-spinners/ClipLoader";
 
 function TeamsPage() {
     const [teamList, setTeamList] = useState([]);
@@ -41,31 +43,23 @@ function TeamsPage() {
                             <div className="team-overview-group">
                                 <Typography variant="h4" className='team-name' align="left" mt={1}>Group stage</Typography>
 
-                                <div className="teams-overview-team-wrapper">
+                              
 
                                     {isLoading ? (
-                                        <h4>Loading Teams...</h4>
+                                     <div className='loader-container'>
+                                          <ClipLoader/> 
+                                     </div>
+   
                                     ) : (
                                         teamList.length > 0 && (
-                                            <>
+                                            <div className="teams-overview-team-wrapper">
                                                 {teamList.map((team) => (
                                                     <TeamItem key={team.team_key} name={team.team_name} logoUrl={team.team_badge} team_key={team.team_key} />
                                                 ))}
-                                            </>
+                                            </div>
                                         )
                                     )}
-                                </div>
-
-
-                            </div>
-
-                            <div className="team-overview-group">
-                                <h2 className="team-overview-label">Play-off</h2>
-
-                                <div className="teams-overview-team-wrapper">
-                                    
-                                </div>
-
+                                
 
 
                             </div>

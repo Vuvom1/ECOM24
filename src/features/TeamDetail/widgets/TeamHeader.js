@@ -3,8 +3,9 @@ import '../../../App.css';
 import '../../../styles/Team.css';
 import { Avatar, Grid, Typography, Link, Divider } from '@mui/material';
 import Stack from '@mui/material/Stack';
-import { ArrowBackIos } from '@mui/icons-material';
 import { green, orange } from '@mui/material/colors';
+import { BackButton } from '../../../components/buttons/BackButton';
+
 
 
 function TeamsPage({team_name ,team_badge}) {
@@ -13,9 +14,7 @@ function TeamsPage({team_name ,team_badge}) {
             <Stack className='team-header'>
                 <Grid className='team-header-content' container spacing={2}>
                     <Grid item xs={2}>
-                        <Link href="#" color="inherit" variant="body2" underline="none">
-                            <ArrowBackIos color='white' fontSize='small'></ArrowBackIos>
-                            Back</Link>
+                        <BackButton/>
                     </Grid>
                     <Grid item xs={10}>
 

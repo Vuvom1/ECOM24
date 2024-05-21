@@ -46,3 +46,10 @@
 .stats-pieChart {
   width: 400px;
 }
+
+.loader-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100px;
+}

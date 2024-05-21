@@ -3,90 +3,136 @@ import '../../../App.css';
 import '../../../styles/Team.css';
 import { Tabs, Tab, Box, Typography, colors } from '@mui/material';
 import PlayerBadge from './PlayerBadge';
-
+import { useState, useEffect } from 'react';
+import ClipLoader from "react-spinners/ClipLoader";
 
 function TeamSquad({ players, team_badge }) {
+    const [goalkeepers, setGoalKeepers] = useState([]);
+    const [midfielders, setMidfielders] = useState([]);
+    const [forwards, setForwards] = useState([]);
+    const [defenders, setDefenders] = useState([]);
+    const [isLoading, setIsLoading] = useState(true);
+
+    useEffect(() => {
+
+
+        const getPlayersData = async () => {
+            try {
+
+                const filteredGoalkeepers = players.filter(player => player.player_type === "Goalkeepers");
+                const filteredDefenders = players.filter(player => player.player_type === "Defenders");
+                const filteredFowards = players.filter(player => player.player_type === "Forwards");
+                const filteredMidfielders = players.filter(player => player.player_type === "Midfielders");
+
+                setGoalKeepers(filteredGoalkeepers);
+                setDefenders(filteredDefenders);
+                setForwards(filteredFowards);
+                setMidfielders(filteredMidfielders);
+
+                console.log(midfielders);
+
+                setIsLoading(false);
+
+            } catch (error) {
+                console.log('Failed to fetch team data: ', error);
+            }
+
+        }
+
+
+        getPlayersData();
+    }, []);
 
     return (
         <>
-            <div>
-                <div className="team-overview-group">
-                    <Typography className="position-label" variant='h4'>Goal Keepers</Typography>
-
-                    <div className="player-badge-wrapper">
-
-
-                        {players.length > 0 && (
-                            <>
-                                {players.map((player) => (
-                                    <PlayerBadge flagUrl={team_badge}
-                                        playerImageUrl={player["player_image"]}
-                                        firstName={player["player_name"]}
-                                        surName='Thibaut'
-                                        position={player["player_type"]}
-                                    ></PlayerBadge>
-                                ))}
-                            </>
-                        )
-                        }
-
-                    </div>
-
-
+            <div>   {isLoading ? (
+                <div className='loader-container'>
+                    <ClipLoader />
                 </div>
 
-                <div className="team-overview-group">
-                    <Typography className="position-label" variant='h4'>Defenders</Typography>
+            ) : (
+                <>
+                    <div className="team-overview-group">
+                        <Typography className="position-label" marginTop={5} marginBottom={2} variant='h4'>Goal Keepers</Typography>
 
-                    <div className="player-badge-wrapper">
+                        <div className="player-badge-wrapper">
 
 
-                        <PlayerBadge flagUrl='https://api.fifa.com/api/v3/picture/flags-sq-4/BEL'
-                            playerImageUrl='https://digitalhub.fifa.com/transform/0ac06079-73ec-4dd4-a0ca-77e9c79cb411/1442830156?io=transform:fill,aspectratio:1x1&quality=75'
-                            firstName='COURTOIS'
-                            surName='Thibaut'
-                            position='Goal Keeper'
+                            {goalkeepers.length > 0 && (
+                                <>
+                                    {goalkeepers.map((player) => (
 
-                        ></PlayerBadge>
+                                        <PlayerBadge flagUrl={team_badge}
+                                            playerImageUrl={player["player_image"]}
+                                            firstName={player["player_name"]}
+                                            surName='Thibaut'
+                                            position={player["player_type"]}
+                                        ></PlayerBadge>
+                                    ))}
+                                </>
+                            )
+                            }
 
-                        <PlayerBadge flagUrl='https://api.fifa.com/api/v3/picture/flags-sq-4/BEL'
-                            playerImageUrl='https://digitalhub.fifa.com/transform/0ac06079-73ec-4dd4-a0ca-77e9c79cb411/1442830156?io=transform:fill,aspectratio:1x1&quality=75'
-                            firstName='COURTOIS'
-                            surName='Thibaut'
-                            position='Goal Keeper'
-
-                        ></PlayerBadge>
-
-                        <PlayerBadge flagUrl='https://api.fifa.com/api/v3/picture/flags-sq-4/BEL'
-                            playerImageUrl='https://digitalhub.fifa.com/transform/0ac06079-73ec-4dd4-a0ca-77e9c79cb411/1442830156?io=transform:fill,aspectratio:1x1&quality=75'
-                            firstName='COURTOIS'
-                            surName='Thibaut'
-                            position='Goal Keeper'
-
-                        ></PlayerBadge>
-
-                        <PlayerBadge flagUrl='https://api.fifa.com/api/v3/picture/flags-sq-4/BEL'
-                            playerImageUrl='https://digitalhub.fifa.com/transform/0ac06079-73ec-4dd4-a0ca-77e9c79cb411/1442830156?io=transform:fill,aspectratio:1x1&quality=75'
-                            firstName='COURTOIS'
-                            surName='Thibaut'
-                            position='Goal Keeper'
-
-                        ></PlayerBadge>
-
-                        <PlayerBadge flagUrl='https://api.fifa.com/api/v3/picture/flags-sq-4/BEL'
-                            playerImageUrl='https://digitalhub.fifa.com/transform/0ac06079-73ec-4dd4-a0ca-77e9c79cb411/1442830156?io=transform:fill,aspectratio:1x1&quality=75'
-                            firstName='COURTOIS'
-                            surName='Thibaut'
-                            position='Goal Keeper'
-
-                        ></PlayerBadge>
-
+                        </div>
 
 
                     </div>
 
+                    <div className="team-overview-group">
+                        <Typography className="position-label" marginTop={5} marginBottom={2} variant='h4'>Midfielders</Typography>
 
-                </div>
+                        <div className="player-badge-wrapper">
+
+
+                            {midfielders.length > 0 && (
+                                <>
+                                    {midfielders.map((player) => (
+
+                                        <PlayerBadge flagUrl={team_badge}
+                                            playerImageUrl={player["player_image"]}
+                                            firstName={player["player_name"]}
+                                            surName='Thibaut'
+                                            position={player["player_type"]}
+                                        ></PlayerBadge>
+                                    ))}
+                                </>
+                            )
+                            }
+
+                        </div>
+
+
+                    </div>
+
+                    <div className="team-overview-group">
+                        <Typography className="position-label" marginTop={5} marginBottom={2} variant='h4'>Forwards</Typography>
+
+                        <div className="player-badge-wrapper">
+
+
+                            {forwards.length > 0 && (
+                                <>
+                                    {forwards.map((player) => (
+
+                                        <PlayerBadge flagUrl={team_badge}
+                                            playerImageUrl={player["player_image"]}
+                                            firstName={player["player_name"]}
+                                            surName='Thibaut'
+                                            position={player["player_type"]}
+                                        ></PlayerBadge>
+                                    ))}
+                                </>
+                            )
+                            }
+
+                        </div>
+                    </div>
+                </>
+            )}
+
+
+
+
 
 
             </div>

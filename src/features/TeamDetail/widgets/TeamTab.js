@@ -10,7 +10,7 @@ import theme from '../../../theme/CustomTheme'
 import TeamStats from './TeamStats';
 
 
-function TeamTab({players, team_badge}) {
+function TeamTab({team_key ,players, team_badge}) {
     const [value, setValue] = React.useState(0);
 
     const handleChange = (event, newValue) => {
@@ -33,7 +33,7 @@ function TeamTab({players, team_badge}) {
                 <TeamOverview/>
             </CustomTabPanel>
             <CustomTabPanel value={value} index={1}>
-                <TeamMatches/>
+                <TeamMatches team_key={team_key} />
             </CustomTabPanel>
             <CustomTabPanel value={value} index={2}>
                 <TeamStats></TeamStats>
